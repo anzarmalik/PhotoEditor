@@ -1,0 +1,36 @@
+{
+  "name": "photo-editor",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.js",
+  "scripts": {
+    "develop": "nodemon --inspect=0.0.0.0:9229 ./src/index.js",
+    "start": "node ./src/index.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "~4.16.0",
+    "express-pino-logger": "^5.0.0",
+    "express-session": "^1.17.1",
+    "image-to-base64": "^2.1.1",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.4",
+    "pino": "^6.6.0",
+    "pino-multi-stream": "^5.1.1",
+    "pino-pretty": "^4.2.1",
+    "pino-tee": "^0.3.0",
+    "sharp": "^0.27.0",
+    "stream": "0.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  },
+  "engines": {
+    "node": "10.19.0"
+  }
+}

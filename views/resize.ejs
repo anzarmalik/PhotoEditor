@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="/public/stylesheets/style.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+
+
+<div class="bg">
+  <center><h1 style="color: blue;">``PhotoEditor & Logger</h1></center>
+<div class="ml-2 col-sm-6" style="margin-top:35px;" >
+    <div id="msg"></div>
+    <form method="post" id="image-form">
+      <label for="height" style="color: blue;" ><b>Height</b></label>
+      <input type="number" name="height" id="height" class="height" >
+      <label for="width" style="color: blue;"><b>Width</b></label>
+      <input type="number" name="width" class="width" id="width" >
+      <input type="file" name="img[]" class="file" accept="image/*">
+      <div class="input-group my-3">
+        <input type="text" class="form-control" disabled placeholder="Upload File" id="file">
+        <div class="input-group-append">
+          <button type="button" id="base64" class="browse btn btn-primary">Browse for Base64</button>
+        </div> &nbsp; 
+        <div class="input-group-append">
+          <button type="button"  id="resize" class="browse btn btn-primary">Browse for Image</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="ml-2 col-sm-6">
+    <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail">
+  </div>
+</div>
+  <script>
+
+
+$(document).on("click", ".browse", function() {
+  var file = $(this).parents().find(".file");
+  file.trigger("click");
+});
+let resizePath ;
+
+$('#resize').click(function(e){
+   resizePath = "resize";
+});
+$('#base64').click(function(e){
+   resizePath = "resize.base64";
+});
+
+$('input[type="file"]').change(function(e) {
+  var fileName = e.target.files[0].name;
+  $("#file").val(fileName);
+  let formData = new FormData();
+  formData.append('resizeImage', e.target.files[0]);
+  formData.append('height', $("#height").val());
+  formData.append('width', $("#width").val());
+  
+  $.ajax({
+              url:'/users/v1/'+resizePath+ '?'+'&height=' + $("#height").val() +'&width=' +  $("#width").val() ,
+              type: 'post',
+              data: formData,
+              processData: false,
+              contentType: false,
+              success: function (res) {
+                document.getElementById("preview").src = res.filePath;
+              },
+              error: function (res) {
+                // console.log(res)
+              },
+              crossDomain: true
+            });
+
+            $('#image-form').trigger("reset");
+
+
+});
+
+  </script>

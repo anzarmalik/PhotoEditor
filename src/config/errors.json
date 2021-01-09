@@ -1,0 +1,9 @@
+{
+    
+   "errorObj": {
+        "httpCode": 404,
+        "message": "NOT_FOUND",
+        "description": "The resource referenced by request does not exists.",
+        "details": "Something went wrong!"
+    }
+}
