@@ -1,0 +1,26 @@
+{"level":30,"time":1610219716054,"pid":56119,"hostname":"flutter"}
+{"level":30,"time":1610220305892,"pid":57142,"hostname":"flutter"}
+{"level":30,"time":1610221020349,"pid":58780,"hostname":"flutter"}
+{"level":30,"time":1610221021575,"pid":58795,"hostname":"flutter"}
+{"level":30,"time":1610221022819,"pid":58811,"hostname":"flutter"}
+{"level":50,"time":1610221565960,"pid":58811,"hostname":"flutter","stack":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client\n    at ServerResponse.setHeader (_http_outgoing.js:470:11)\n    at ServerResponse.header (/home/anzar/Downloads/PhotoEditor/node_modules/express/lib/response.js:767:10)\n    at ServerResponse.send (/home/anzar/Downloads/PhotoEditor/node_modules/express/lib/response.js:170:12)\n    at ServerResponse.json (/home/anzar/Downloads/PhotoEditor/node_modules/express/lib/response.js:267:15)\n    at ServerResponse.send (/home/anzar/Downloads/PhotoEditor/node_modules/express/lib/response.js:158:21)\n    at upload (/home/anzar/Downloads/PhotoEditor/src/controller/resize.js:40:13)","type":"Error","msg":"Cannot set headers after they are sent to the client"}
+{"level":30,"time":1610221599922,"pid":59785,"hostname":"flutter"}
+{"level":30,"time":1610221600999,"pid":59800,"hostname":"flutter"}
+{"level":30,"time":1610221668139,"pid":59891,"hostname":"flutter"}
+{"level":30,"time":1610221670498,"pid":59908,"hostname":"flutter"}
+{"level":30,"time":1610221671802,"pid":59924,"hostname":"flutter"}
+{"level":30,"time":1610221675068,"pid":59950,"hostname":"flutter"}
+{"level":30,"time":1610222645570,"pid":63054,"hostname":"flutter"}
+{"level":30,"time":1610222862715,"pid":63609,"hostname":"flutter"}
+{"level":30,"time":1610222868276,"pid":63627,"hostname":"flutter"}
+{"level":30,"time":1610222883651,"pid":63652,"hostname":"flutter"}
+{"level":30,"time":1610223105295,"pid":64027,"hostname":"flutter"}
+{"level":30,"time":1610223107062,"pid":64042,"hostname":"flutter"}
+{"level":30,"time":1610223110649,"pid":64070,"hostname":"flutter"}
+{"level":30,"time":1610223120170,"pid":64090,"hostname":"flutter"}
+{"level":30,"time":1610223123391,"pid":64106,"hostname":"flutter"}
+{"level":30,"time":1610223130655,"pid":64126,"hostname":"flutter"}
+{"level":30,"time":1610223135879,"pid":64144,"hostname":"flutter"}
+{"level":30,"time":1610223160526,"pid":64258,"hostname":"flutter"}
+{"level":30,"time":1610223262313,"pid":64328,"hostname":"flutter"}
+{"level":30,"time":1610223291023,"pid":64423,"hostname":"flutter"}
