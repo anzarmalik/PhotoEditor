@@ -5,9 +5,11 @@ const { logger, multiStreamLog } = require('../config/logger');
 const {
   upload,
 } = require('../middleware/imageResize');
+const {
+  getIPAddress,
+} = require('../middleware/get_IPAddress');
 
 /* POST resize image listing here */
-
 const imageResize = (req, res) => {
   try {
     const data = {
@@ -16,10 +18,11 @@ const imageResize = (req, res) => {
     };
     upload(req, res, async (err) => {
       if (err) {
-        return new Error('Error uploading file.');
+        multiStreamLog.error(err);
+        logger.error(err);
+        return new Error(err);
       }
-      let IPADDRESS = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-      IPADDRESS = IPADDRESS === '::1' ? '127.0.0.1' : IPADDRESS.replace(/^.*:/, '');
+      const IPADDRESS = getIPAddress(req);
       const responseObject = {
         responseCode: '200',
       };
@@ -29,6 +32,7 @@ const imageResize = (req, res) => {
 
       if (req.url.includes('resize.base64')) {
         const resultBas64 = await imageToBase64(`${__dirname}/../../images/Resized${fileName}`);
+        responseObject.filePath = 'data:image/jpeg;base64,....';
         multiStreamLog.debug({
           ...{ IPADDRESS },
           ...{ fileName },
@@ -37,7 +41,7 @@ const imageResize = (req, res) => {
         });
         responseObject.filePath = `data:image/jpeg;base64,${resultBas64}`;
         res.send(responseObject);
-      } else if (req.url.includes('resize')) {
+      } else {
         responseObject.filePath = `/images/Resized${fileName}`;
         multiStreamLog.debug({
           ...{ IPADDRESS },
@@ -49,6 +53,7 @@ const imageResize = (req, res) => {
       }
     });
   } catch (error) {
+    multiStreamLog.error(error);
     logger.error(error);
     return new Error(error);
   }

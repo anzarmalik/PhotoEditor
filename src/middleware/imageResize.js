@@ -1,6 +1,7 @@
 const multer = require('multer');
 const fs = require('fs');
 // const mime = require('mime');
+// const { logger, multiStreamLog } = require('../config/logger');
 
 const storage = multer.diskStorage({
   destination(req, file, callback) {
