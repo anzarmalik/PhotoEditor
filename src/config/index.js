@@ -10,8 +10,7 @@ const pinoPath = pino('./logs/info.log');
 const expressPino = require('express-pino-logger')({
   logger: pinoPath,
 });
-// const database = require('./db');
-// database.connect();
+
 const indexRouter = require('../routes/index');
 const usersRouter = require('../routes/resize');
 
